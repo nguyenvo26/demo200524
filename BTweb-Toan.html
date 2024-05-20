@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Untitled Document</title>
+	
+	<script>
+		function tinh()
+		{
+			var a = document.getElementById("canha").value;
+			var b = document.getElementById("canhb").value;
+			var c = Math.sqrt(Math.pow(a,2) + Math.pow(b,2));
+			return Math.round(c);
+		}
+		
+		function hienthi()
+		{
+			var n = document.getElementById("ngay").value;
+			var t = document.getElementById("thang").value;
+			var na = document.getElementById("nam").value;
+			var date = new Date(na, t-1, n);
+			var thu = date.getDay()+1;
+			//if (thu==1)
+				//return "Chủ nhật "+ "ngày "+ n + " tháng "+ t + " năm " + na
+			//else
+				//return "Thứ " + thu +" ngày "+ n + " tháng "+ t + " năm " + na
+			
+			var htthang
+			if (thu==1)
+				htthang = "Chủ nhật";
+			else if (thu == 2)
+				htthang = "Thứ hai";
+			else if (thu == 3)
+				htthang = "Thứ ba";
+			else if (thu == 4)
+				htthang = "Thứ tư";
+			else if (thu == 5)
+				htthang = "Thứ năm";
+			else if (thu == 6)
+				htthang = "Thứ sáu";
+			else
+				htthang = "Thứ bảy";
+			return htthang +" ngày "+ n + " tháng "+ t + " năm " + na
+			
+		}
+		
+	</script>
+	
+</head>
+
+<body>
+	<form>
+		<div align="center">
+			<h3>Tính cạnh huyền</h3>
+			<table border="1">
+				<tr>
+					<td>Cạnh A <input type="text" id="canha"></td>
+					<td>Cạnh B <input type="text" id="canhb"></td>
+				</tr>
+				<tr>
+					<td> Cạnh huyền</td>
+					<td> <lable id="kq"></lable> </td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"> <input type="button" value="Tính" onClick="kq.innerText = tinh()"></td>
+				</tr>
+
+			</table>
+		</div>
+		<br> <br>
+		<div align="center">
+			<h3>Nhập ngày tháng năm</h3>
+			<table>
+				<tr>
+					<td>Ngày <input type="text" id="ngay"></td>
+					<td>Tháng <input type="text" id="thang"></td>
+					<td>Năm <input type="text" id="nam"></td>
+				</tr>
+				<tr height="30"> <td> </td></tr>
+				<tr>
+					<td> <lable id="ht"></lable> </td>
+					<td align="center"> <input type="button" value="Hiển thị" onClick="ht.innerText = hienthi()"> </td>
+				</tr>
+			</table>
+		</div>
+	</form>
+			
+			<script>
+				var traicay = ["Dưa hấu","Cam"];
+				var hoa =["Hồng","Lan"];
+				
+				var kq1 = traicay.concat(hoa);
+				//document.write(kq1 +"<br>");
+				
+				var kq2 = traicay.concat("Chuối")
+				//document.write(kq2 + "<br>");
+				
+				var kq3 = traicay.concat(1,2,3);
+				//document.write(kq3 + "<br>");
+				
+				var kq4 = traicay.join(" - ");
+				//document.write(kq4 + "<br>");
+				
+				var traicayud1 = traicay.pop(); // lấy phần tử cuối cùng, đồng thời xóa phần tử đó trong mảng cũ 
+				//document.write(traicay + "<br>");
+				//document.write(traicayud1 + "<br>");
+				
+				traicay.push("Vú sữa");   // Thêm phần tử 
+				//document.write(traicay + "<br>");
+				
+				// reverse: đảo ngược mảng, slice(<cs1>,<cs2>) lấy ra phần tử từ cs1 -> cs2-1
+				
+				var mangso = [6,5,8,1,9,3];
+				//var mangud = mangso.slice(0,4); // bắt đầu từ chỉ số 0 -> 4-1 
+				//document.write(mangud + "<br>");
+				
+				var mangud2 = mangso.splice(1,1); // cắt phần tử từ (cs1,số lượng phần tử) từ mangso
+				//document.write(mangso + "<br>");
+				//document.write(mangud2+ "<br");
+				
+				mangso.splice(1,0,"2","7"); 
+				//document.write(mangso+ "<br");
+
+				
+				mangcansx = [2,1,9,5,7,3,4,6,8];
+				mangcansx.sort();
+				document.write(mangcansx);
+				
+				
+			</script>
+	
+</body>
+</html>
